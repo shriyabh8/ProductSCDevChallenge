@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070707">
+  <title>Netflix | Explore your next story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-nav" id="sideNav" aria-label="Primary navigation">
+      <div class="brand-lockup"><span class="brand-name">NETFLIX</span></div>
+      <nav class="nav-links">
+        <a class="nav-link is-active" href="#home" data-nav="home"><span class="nav-icon">⌂</span><span>Home</span></a>
+        <a class="nav-link" href="#search" data-nav="search"><span class="nav-icon">⌕</span><span>Search</span></a>
+        <a class="nav-link" href="#search" data-nav="search"><span class="nav-icon">＋</span><span>My List</span></a>
+        <a class="nav-link" href="#friends" data-nav="friends"><span class="nav-icon">◉</span><span>Friends mode</span></a>
+        <a class="nav-link" href="#coming-soon" data-nav="coming-soon"><span class="nav-icon">◷</span><span>Coming soon</span></a>
+      </nav>
+      <div class="nav-footer"><button class="profile-chip" id="profileButton" aria-label="Open profile"><span>J</span><small>Jordan</small><b>⌄</b></button><button class="nav-text-button" id="helpButton">Help center</button></div>
+    </aside>
+
+    <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation">☰</button>
+    <div class="nav-scrim" id="navScrim"></div>
+    <button class="top-logout-button" id="logoutButton" aria-label="Log out">Log out <span>↗</span></button>
+    <main id="home" class="app-view is-active">
+      <section class="hero" aria-label="Featured title">
+        <div class="hero-content">
+          <p class="eyebrow"><span class="eyebrow-line"></span> NETFLIX ORIGINAL</p>
+          <h1>THE<br><em>LAST</em><br>VOYAGE</h1>
+          <div class="hero-meta"><span>2024</span><span class="rating-badge">16+</span><span>2 Seasons</span><span>Drama</span></div>
+          <p class="hero-description">A disgraced cartographer gets one last chance to redraw the map of a world that has forgotten how to dream.</p>
+          <div class="hero-actions"><button class="primary-button" data-play="The Last Voyage"><span>▶</span> Play</button><button class="secondary-button" data-details="The Last Voyage"><span>＋</span> My List</button></div>
+        </div>
+        <div class="hero-dots" aria-label="Featured title slides"><button class="is-active" data-slide="0"></button><button data-slide="1"></button><button data-slide="2"></button></div>
+        <div class="scroll-cue"><span>Scroll to explore</span><i>↓</i></div>
+      </section>
+
+      <section class="catalog" id="browse">
+        <div class="section-heading interactive-heading" data-nav-reveal="home" tabindex="0" role="button"><div><p class="section-kicker">CURATED FOR YOU</p><h2>Keep watching</h2></div><button class="text-button" data-view-all="keep-watching">View all <span>→</span></button></div>
+        <div class="poster-row" id="keepWatchingRow"></div>
+
+        <div class="section-heading trending-heading interactive-heading" data-nav-reveal="home" tabindex="0" role="button"><div><p class="section-kicker">WHAT'S HOT</p><h2>Trending now</h2></div><button class="text-button" data-view-all="trending">View all <span>→</span></button></div>
+        <div class="poster-row" id="trendingRow"></div>
+
+      </section>
+      <footer><span>Stories that stay with you.</span><span class="footer-note">© 2024 Netflix prototype</span></footer>
+    </main>
+    <main id="search" class="app-view search-view">
+      <section class="search-page">
+        <div class="discovery-panel">
+          <div class="discovery-copy"><p class="section-kicker">YOUR LIBRARY</p><h2>Find something<br><em>worth watching.</em></h2><p>Search across the Netflix library and filter by genre to find your next favorite.</p></div>
+          <div class="library-controls"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search titles, genres, people..." autocomplete="off"></label><div class="control-row"><div class="filter-tabs" role="tablist" aria-label="Filter by genre"><button class="is-selected" data-filter="All">All</button><button data-filter="Drama">Drama</button><button data-filter="Comedy">Comedy</button><button data-filter="Sci-Fi">Sci-Fi</button></div><select id="sortSelect" aria-label="Sort titles"><option value="featured">Featured</option><option value="match">Best match</option><option value="az">A to Z</option><option value="year">Newest first</option></select></div></div>
+        </div>
+        <div class="library-grid" id="libraryGrid"></div>
+        <div class="pagination" id="pagination"></div>
+      </section>
+      <footer><span>Netflix prototype</span><span class="footer-note">Search and discover</span></footer>
+    </main>
+    <main id="friends" class="app-view friends-view">
+      <section class="friends-panel">
+        <div class="friends-intro"><p class="section-kicker">WATCH TOGETHER</p><h2>Friends<br><em>mode.</em></h2><p>Choose the profiles you are watching with. We compare their recommendations and keep only titles where everyone has a 70%+ match.</p><div class="profile-presence" id="profilePresence"></div></div>
+        <div class="friends-results"><div class="friends-results-heading"><div><p class="section-kicker">COMMON GROUND</p><h3 id="friendsCount">Select profiles to compare</h3></div><span class="match-rule">70%+ match for all</span></div><div class="friends-profile-picker" id="friendsProfilePicker"></div><div class="friends-grid" id="friendsGrid"></div></div>
+      </section>
+      <footer><span>Netflix prototype</span><span class="footer-note">Shared recommendations</span></footer>
+    </main>
+  </div>
+
+  <div class="auth-gate" id="authGate"><div class="auth-card"><div class="brand-lockup"><span class="brand-name">NETFLIX</span></div><div id="loginPanel"><p class="section-kicker">ACCOUNT LOGIN</p><h1>Sign in</h1><p class="auth-copy">Use your Netflix account to continue.</p><form id="loginForm"><label>Email<input id="loginEmail" type="email" value="demo@netflix.local" required></label><label>Password<input id="loginPassword" type="password" value="password123" required></label><button class="primary-button" type="submit">Sign in <span>→</span></button><p class="auth-hint">Demo: demo@netflix.local / password123</p><p class="auth-error" id="authError"></p></form></div><div id="profileSelectPanel" hidden><p class="section-kicker">WHO'S WATCHING?</p><h1>Choose your<br><em>profile.</em></h1><p class="auth-copy">Your recommendations are waiting.</p><div class="auth-profiles" id="authProfiles"></div><button class="primary-button" id="continueButton" disabled>Continue <span>→</span></button></div></div></div>
+  <div class="modal-backdrop" id="detailModal" aria-hidden="true"><article class="detail-modal"><button class="close-button" data-close="detailModal" aria-label="Close details">×</button><div class="detail-visual" id="detailVisual"></div><div class="detail-body" id="detailBody"></div></article></div>
+  <div class="modal-backdrop" id="profileModal" aria-hidden="true"><article class="profile-modal"><button class="close-button" data-close="profileModal" aria-label="Close profiles">×</button><p class="section-kicker">WHO'S WATCHING?</p><h2>Profiles</h2><div class="profiles-grid" id="profilesGrid"></div><form class="profile-form" id="profileForm"><input id="profileNameInput" maxlength="16" placeholder="New profile name" aria-label="New profile name" required><button class="primary-button" type="submit">＋ Add profile</button></form></article></div>
+  <div class="modal-backdrop" id="playerModal" aria-hidden="true"><article class="player-modal"><button class="close-button" data-close="playerModal" aria-label="Close player">×</button><div class="player-screen"><div class="player-glow"></div><div class="player-center"><button class="player-play" id="playerPlay" aria-label="Pause">Ⅱ</button><p id="playerTitle">The Last Voyage</p></div><div class="player-controls"><span>0:42</span><div class="progress-track"><i></i></div><span>48:16</span><button>⚙</button><button>⛶</button></div></div></article></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
